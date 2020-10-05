@@ -6,7 +6,9 @@
     <title>118A3051</title>
     <style>
       body {
-        background-color: black;
+        background-image: url("https://buffer.com/library/content/images/library/wp-content/uploads/2016/06/giphy.gif");
+        background-repeat: no-repeat;
+        background-size:cover;
         padding: 0;
         font-size: 1.2rem;
       }
@@ -20,9 +22,8 @@
           color: white;
         }
       .navbar {height: 40px;
-        background-color: red;
+        background-color: #ad1360;
         list-style: none;
-        padding: 0.5rem;
         color: #000000;
         font-size: large;
         font-weight: 600;
@@ -39,19 +40,34 @@
         float: right;
         margin-right: 1rem;
       }
+        #myDIV {
+        background-color:#ad1360;
+        border: 1px solid black;
+        animation: mymove 3s infinite;
+        }
+
+        @keyframes mymove {
+        50% {padding: 15px;}
+}
+        
     </style>
   </head>
   <body onload='document.form1.email.focus()'>
     <!-- Name:Nirmit Sawant   PRN:118A3051 -->
-    <ul class="navbar">
-      <li> Sign Up Page</li>
-      <li class="rightItems">Contact Us</li>
-      <li class="rightItems">About Us</li>
-      <li class="rightItems">Home</li>
-    </ul>
+    <div id="myDIV">
+        <ul class="navbar">
+        <li> Sign Up Page</li>
+        <li class="rightItems">Contact Us</li>
+        <li class="rightItems">About Us</li>
+        <li class="rightItems">Home</li>
+        </ul>
+    </div>
+    
     <div class="signup">
       <form name="form1" action="">
-        <h1>Sign Up</h1>
+            <h1>Sign Up</h1>
+    
+          
         <p>It's Free and only takes a minute.</p>
         <label>First Name:</label>
         <input type="text" id="name" />
