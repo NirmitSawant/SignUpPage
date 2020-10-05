@@ -39,15 +39,19 @@
         float: right;
         margin-right: 1rem;
       }
+
+      li a:hover{
+     background-color: yellowgreen;
+ }
     </style>
   </head>
   <body onload='document.form1.email.focus()'>
     <!-- Name:Nirmit Sawant   PRN:118A3051 -->
     <ul class="navbar">
       <li> Sign Up Page</li>
-      <li class="rightItems">Contact Us</li>
-      <li class="rightItems">About Us</li>
-      <li class="rightItems">Home</li>
+      <li class="rightItems"><a href="">Contact Us</a></li>
+      <li class="rightItems"><a href="">About Us</a></li>
+      <li class="rightItems"><a href="">Home</a></li>
     </ul>
     <div class="signup">
       <form name="form1" action="">
@@ -63,12 +67,12 @@
         <input type="email" name="email" id="email"/>
         <br /><br />
         <label>Password:</label>
-        <input type="password"/>
+        <input type="password"name="password" id="password"/>
         <br /><br />
         <label>Confirm Password:</label>
-        <input type="password"/>
+        <input type="password" name="confirm" id="confirm"/>
         <br /><br />
-        <button type="" id="submit" onclick="validate(document.form1.email)">Sign Up</button>
+        <button type="" id="submit" onclick="validate(document.form1.email,document.form1.password,document.form1.confirm)">Sign Up</button>
         <br /><br />
         <p>
           By clicking the Sign Up button, you agree to our
@@ -80,20 +84,28 @@
     </div>
     <script>
 
-    function validate(inputText)
+    function validate(inputEmail,inputPassword,confirmPassword)
   {
   var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  if(inputText.value.match(mailformat))
+  if(inputEmail.value.match(mailformat) && inputPassword.value.length>=8 && inputPassword.value==confirmPassword.value)
   {
-  alert("Valid email address!");
+  alert("Details Accepted");
   document.form1.email.focus();
   return true;
   }
-  else
-  {
-  alert("You have entered an invalid email address!");
-  document.form1.email.focus();
+  else if(!inputEmail.value.match(mailformat)){
+      alert ("You have entered an invalid email id");
+      document.form1.email.focus();
+      return false;
+  }
+  else if(inputPassword.value.length<8 ){
+  alert("Password should be minimum of 8 characters");
+  
   return false;
+  }
+
+  else if(inputPassword.value!=confirmPassword.value){
+      alert("Password mismatch!");
   }
   }
 
