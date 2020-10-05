@@ -1,2 +1,3 @@
 # SignUpPage
-HTML Sign Up Page .
+HTML Sign Up Page with Mail Formatting.
+
